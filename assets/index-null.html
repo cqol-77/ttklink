@@ -1,0 +1,511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>商品</title>
+<style type="text/css">
+    html {
+        color: #000;
+        background: #FFF;
+    }
+
+    body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
+        margin: 0;
+        padding: 0;
+    }
+
+    .col_container {
+        font: 12px/1.5 '\5b8b\4f53';
+    }
+
+    .col_container li {
+        list-style: none;
+    }
+
+    .col_container a {
+        text-decoration: none;
+        color: #000000;
+    }
+
+    .col_container img {
+        display: block;
+        font-size: 0;
+        border: none;
+    }
+
+    .col_container em, .col_container strong {
+        font-style: normal;
+        font-weight: normal;
+    }
+
+    .col_container input, .col_container textarea, .col_container select {
+        *font-size: 100%;
+    }
+
+    .col_container .clearfix:after {
+        content: '.';
+        display: block;
+        clear: both;
+        visibility: hidden;
+        height: 0;
+    }
+
+    .col_container .clearfix {
+        zoom: 1;
+    }
+
+        /* end reset */
+    .col_content {
+        border: 1px #6a5acd solid;
+        width: 950px;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+
+    .col_content a {
+        font-size: 18px;
+        color: blue;
+    }
+
+    .col_content a .tts_icon {
+        display: inline;
+        vertical-align: top;
+        height: 12px;
+        width: 14px;
+    }
+
+    .col_content .col_header {
+        background-color: #ccc;
+        height: 200px;
+    }
+
+    #tts_box {
+        position: absolute;
+        height: 300px;
+        width: 300px;
+        z-index: 999;
+        visibility: hidden;
+        display: none;
+        background-color: rgba(102, 102, 102, 0.75);
+        background-color: transparent\9;
+        filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr = #75666666, endcolorstr = #75666666);
+        cursor: pointer;
+    }
+
+    .tts_hidden {
+        display: none !important;
+    }
+</style>
+<style type="text/css">
+body,
+div,
+ul,
+li,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: transparent;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+img {
+    border: 0;
+}
+
+ul, li {
+    list-style: none
+}
+
+    /* css reset end*/
+.ttklink_box div {
+    padding: 0;
+    margin: 0;
+}
+
+.ttklink_con {
+    position: absolute;
+    visibility: hidden;
+}
+
+.ttklink_con .ttklink_header {
+    margin-left: 4px;
+    position: relative;
+    overflow: hidden;
+    width: 264px;
+    height: 27px;
+    border: 1px #e42a63 solid;
+    -webkit-box-shadow: 0px 0px 4px 1px #e2e2e2;
+    box-shadow: 0px 0px 4px 1px #e2e2e2;
+    border-radius: 3px 3px 0 0;
+    -moz-border-radius: 3px 3px 0 0;
+    -webkit-border-radius: 3px 3px 0 0;
+    background-color: #f33c74;
+}
+
+.ttklink_header .ttklink_logo {
+    display: block;
+    float: left;
+    width: 80px;
+    height: 17px;
+    padding: 4px 0 0 8px;
+}
+
+.ttklink_header img {
+    display: block;
+    border: 0;
+}
+
+.ttklink_header .ttklink_close {
+    display: block;
+    float: right;
+    padding: 8px;
+    height: 12px;
+    width: 12px;
+    border-left: 1px #e42a63 solid;
+}
+
+.ttklink_con .ttklink_iframe {
+    border: 1px solid #BBBBBB;
+    border-top: none;
+    font-family: arial;
+    font-size: 12px;
+    position: relative;
+    width: 264px;
+    overflow: hidden;
+    -webkit-box-shadow: 0px 0px 4px 1px #e2e2e2;
+    box-shadow: 0px 0px 4px 1px #e2e2e2;
+    border-radius: 0 0 3px 3px;
+    -moz-border-radius: 0 0 3px 3px;
+    -webkit-border-radius: 0 0 3px 3px;
+    margin-left: 4px;
+    height: 446px;
+    background: url(http://browser.re.taotaosou.com/images/ttlink/waiting-v2.gif) no-repeat center;
+    background-color: #f6f6f6;
+
+}
+
+.ttklink_waiting {
+    vertical-align: middle;
+    text-align: center;
+    background: url(http://browser.re.taotaosou.com/images/ttlink/waiting-v2.gif) no-repeat;
+    width: 126px;
+    height: 84px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 200px;
+}
+
+.tts_icon {
+    margin-left: 3px;
+    display: inline;
+    vertical-align: top;
+    height: 12px;
+    width: 14px;
+}
+
+.ttklink_point_right {
+    width: 16px;
+    height: 21px;
+    position: absolute;
+    top: 220px;
+    left: 269px;
+    background: url(http://browser.re.taotaosou.com/images/ttlink/ttk_pointer3.png) no-repeat;
+    _background-image: none;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src = "http://browser.re.taotaosou.com/images/ttlink/ttk_pointer3.png", sizingMethod = "scale")
+}
+
+.ttklink_point_left {
+    width: 16px;
+    height: 21px;
+    position: absolute;
+    top: 220px;
+    left: -11px;
+    background: url(http://browser.re.taotaosou.com/images/ttlink/ttk_pointer2.png) no-repeat;
+    _background-image: none;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src = "http://browser.re.taotaosou.com/images/ttlink/ttk_pointer2.png", sizingMethod = "scale")
+}
+
+.ttklink_main {
+    background-color: #fff;
+    font-family: arial;
+    font-size: 12px;
+    position: relative;
+    width: 264px;
+    overflow: hidden;
+}
+
+.ttklink_main .ttklink_orig {
+    height: 129px;
+    overflow: hidden;
+    position: relative;
+    background: url(http://browser.re.taotaosou.com/images/ttlink/ttk_bgbottom.jpg) #f0f0f0 no-repeat bottom center;
+    padding: 9px 0 0 8px;
+}
+
+.ttklink_orig .orig_img {
+    overflow: hidden;
+    background-color: #f0f0f0;
+    position: relative;
+    height: 120px;
+    width: 120px;
+    float: left;
+}
+
+.ttklink_orig .orig_img a {
+    display: table-cell;
+    width: 120px;
+    height: 120px;
+    text-align: center;
+    vertical-align: middle;
+    outline: none;
+    *display: block;
+    *font-family: Arial;
+    *font-size: 105px
+}
+
+.ttklink_orig .orig_img a img {
+    vertical-align: middle;
+    max-height: 120px;
+    max-width: 120px;
+}
+
+.ttklink_orig .orig_info {
+    overflow: hidden;
+    height: 120px;
+    width: 120px;
+    float: left;
+    margin-left: 9px;
+}
+
+.ttklink_orig .orig_info .orig_title {
+    height: 55px;
+    overflow: hidden;
+    position: relative;
+    width: 120px;
+}
+
+.ttklink_orig .orig_info img {
+    vertical-align: middle;
+    margin-right: 5px;
+    margin-bottom: 1px;
+    float: left;
+}
+
+.ttklink_orig .orig_info a {
+    font-size: 14px;
+    color: #777;
+    line-height: 19px;
+    word-break: normal;
+    word-wrap: break-word;
+
+}
+
+.ttklink_orig .orig_state {
+    color: #F33C56;
+    display: block;
+    font-size: 20px;
+    height: 18px;
+    line-height: 18px;
+    margin-top: 12px;
+    overflow: hidden;
+}
+
+.orig_state .orig_price {
+    background: url(http://browser.re.taotaosou.com/images/ttlink/ttk_soceRmb.jpg) no-repeat scroll left 10px transparent;
+    height: 18px;
+    overflow: hidden;
+    padding-left: 9px;
+}
+
+.ttklink_orig .orig_addr {
+    color: #999;
+    display: block;
+    height: 20px;
+    text-align: left;
+    line-height: 20px;
+    margin-top: 15px;
+}
+
+.ttklink_main .ttklink_item {
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 0 0 3px 3px;
+}
+
+.ttklink_item .item_hd p {
+    color: #777;
+    margin-top: 8px;
+    height: 14px;
+    line-height: 14px;
+    text-align: left;
+    padding-left: 9px;
+}
+
+.ttklink_item .item_list {
+    position: relative;
+    overflow: hidden;
+    height: 264px;
+}
+
+.ttklink_item .item_list ul {
+    overflow: hidden;
+    padding: 8px 0 0 8px;
+    background: url(http://browser.re.taotaosou.com/images/ttlink/ttk_listBg1.jpg) no-repeat 8px 8px;
+    height: 256px;
+    background-color: #fff;
+}
+
+.item_list li {
+    margin-bottom: 8px;
+    height: 120px;
+    width: 120px;
+    overflow: hidden;
+    position: relative;
+    float: left;
+    margin-right: 8px;
+}
+
+.item_list li a {
+    display: table-cell;
+    width: 120px;
+    height: 120px;
+    text-align: center;
+    vertical-align: middle;
+    outline: none;
+    *display: block;
+    *font-family: Arial;
+    *font-size: 105px
+}
+
+.item_list li a {
+    vertical-align: middle;
+    max-height: 120px;
+    max-width: 120px;
+}
+
+.item_list .item_price {
+    position: absolute;
+    height: 15px;
+    padding-top: 3px;
+    right: 0;
+    bottom: 0;
+    padding-left: 16px;
+    padding-right: 3px;
+    color: #ff304d;
+    background: url(http://browser.re.taotaosou.com/images/ttlink/ttk_rmbbg.png) no-repeat;
+    _background-image: none;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src = "http://browser.re.taotaosou.com/images/ttlink/ttk_rmbbg.png", sizingMethod = "scale")
+}
+
+.item_list .item_price span {
+    height: 15px;
+    line-height: 15px;
+}
+
+.ttklink_more {
+    background: url(http://browser.re.taotaosou.com/images/ttlink/ttk_footerbghover.jpg) repeat-x;
+    height: 23px;
+    position: relative;
+    overflow: hidden;
+    border-top: none;
+    border-top: 1px #bbb solid;
+}
+
+.ttklink_more a {
+    display: block;
+    height: 23px;
+    line-height: 20px;
+    text-align: center;
+    color: #f33c74;
+    background: url(http://browser.re.taotaosou.com/images/ttlink/ttk_footerbghover.jpg) repeat-x;
+}
+
+.ttklink_more a:hover {
+    background: url(http://browser.re.taotaosou.com/images/ttlink/ttk_footerbg.jpg) repeat-x;
+}
+
+.baiduwrap {
+    position: relative;
+    overflow: hidden;
+    padding: 8px 0 0 7px;
+    height: 256px;
+    background-color: white;
+}
+
+.baiduads {
+    overflow: hidden;
+    width: 250px;
+    height: 250px;
+    position: relative;
+    background: url(http://browser.re.taotaosou.com/images/waiting.gif) no-repeat center;
+    background-color: #F6F6F6;
+}
+
+</style>
+</head>
+<body>
+<div id="ttklink_box">
+    <div id="J_ttklink_con" class="ttklink_con"
+         style="visibility: visible; display: block; z-index: 999999; left: 20px; top: 20px;">
+        <div class="ttklink_header"><a href="http://tk.taotaosou.com" class="ttklink_logo" target="_blank"><img
+                src="http://browser.re.taotaosou.com/images/ttlink/ttk_logo.jpg" alt=""></a><a id="J_ttklink_close"
+                                                                                               href="javascript:void(0)"
+                                                                                               onclick="return false;"
+                                                                                               class="ttklink_close"><img
+                src="http://browser.re.taotaosou.com/images/ttlink/ttk_close.jpg" alt=""></a></div>
+        <div id="J_ttklink_iframe" class="ttklink_iframe">
+            <div class="ttklink_main">
+                <div class="ttklink_orig">
+                    <img id="J_stat_none" src="http://browser.re.taotaosou.com/images/ttlink/ttk_error.jpg" alt="">
+                </div>
+
+                <!--orig end-->
+                <div class="ttklink_item">
+
+                    <div class="item_hd">
+                        <p id="J_stat_fromAds">没找到相似哦，给你推荐些别的</p>
+                    </div>
+                    <div id="J_stat_iClick" class="item_list">
+                        <div class="baiduwrap">
+                            <div class="baiduads">
+                                <script type="text/javascript">BAIDU_CLB_SLOT_ID = "479821";</script>
+                                <script type="text/javascript" src="http://cbjs.baidu.com/js/o.js"></script>
+                                <script charset="utf-8"
+                                        src="http://cb.baidu.com/ecom?di=479821&amp;fn=BAIDU_CLB_SETJSONADSLOT&amp;tpl=BAIDU_CLB_SETJSONADSLOT&amp;asp_refer=http%3A%2F%2F545158.155.user-website1.com%2F&amp;asp_url=http%3A%2F%2Fbrowser.re.taotaosou.com%2FgetTtkLinkItems.do%3FitemId%3D8818566956%26title%3D%25E5%2595%2586%25E5%2593%2581%26cpsid%3Dmm_30234426_2674428_9928604%26ditch%3D0011000020121130&amp;new=1&amp;fv=11&amp;cn=1&amp;if=3&amp;word=asp_refer&amp;refer=asp_refer&amp;ready=1&amp;jn=3&amp;lmt=1369680730&amp;csp=1440,900&amp;csn=1440,860&amp;ccd=32&amp;chi=2&amp;cja=true&amp;cpl=24&amp;cmi=36&amp;cce=true&amp;csl=zh-CN&amp;did=1&amp;rt=5&amp;dt=1369709530&amp;c01=0&amp;prt=1369709530260&amp;baidu_id="></script>
+                                <div id="baidu_clb_slot_479821">
+                                    <iframe id="baidu_clb_slot_iframe_479821" src="about:blank"
+                                            onload="BAIDU_CLB_renderFrame('479821')" width="250" height="250" vspace="0"
+                                            hspace="0" allowtransparency="true" scrolling="no" marginheight="0"
+                                            marginwidth="0" frameborder="0"
+                                            style="border: 0; vertical-align: bottom; margin: 0; display: block;"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!--item end-->
+
+
+                <div class="ttklink_more">
+                </div>
+
+            </div>
+        </div>
+        <div id="J_ttklink_point" class="ttklink_point_left" style="top: 85px;"></div>
+    </div>
+</div>
+</body>
+</html>
